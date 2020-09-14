@@ -71,6 +71,7 @@ public class AccountResourceTest {
         mailbox.clear();
     }
 
+<%_ if (databaseType === 'sql') { _%>
     @BeforeEach
     public void databaseFixture() {
         try (Liquibase liquibase = liquibaseFactory.createLiquibase()) {
@@ -81,6 +82,7 @@ public class AccountResourceTest {
             e.printStackTrace();
         }
     }
+<%_ }%>
 
     @BeforeAll
     static void jsonMapper() {

@@ -90,6 +90,7 @@ public class UserResourceTest {
         this.adminToken = TestUtil.getAdminToken();
     }
 
+<%_ if (databaseType === 'sql') { _%>
     @BeforeEach
     public void databaseFixture() {
         try (Liquibase liquibase = liquibaseFactory.createLiquibase()) {
@@ -100,6 +101,7 @@ public class UserResourceTest {
             e.printStackTrace();
         }
     }
+<%_ }%>
 
     @BeforeEach
     public void initTest() {
